@@ -20,25 +20,20 @@ let todos = [
 function renderTodoApp() {
   let app = document.querySelector("#app");
   let h1 = document.createElement("h1");
-
   let toDoList = document.createElement("ul");
 
   for (let index = 0; index < todos.length; index++) {
     let item = todos[index];
     let checkBox = item.completed ? "done" : "";
-    let itemMarkup = `<li class = "list-items">
-        <input type = "checkbox" ${checkBox}/>
-        ${items.description}
+    let itemMarkup = `<li><input type = "checkbox" ${checkBox} ${item.description}></index>
         </li>`;
 
+    h1.innerText = "Todo List";
     toDoList.innerHTML += itemMarkup;
+
+    app.appendChild(h1);
+    app.appendChild(toDoList);
   }
-
-  h1.innerText = "Todo List";
-
-  app.appendChild(h1);
-
-  app.append(toDoList);
 }
 
 renderTodoApp();
