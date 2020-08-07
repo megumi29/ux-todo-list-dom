@@ -21,14 +21,16 @@ function renderTodoApp() {
   let app = document.querySelector("#app");
   let h1 = document.createElement("h1");
   let toDoList = document.createElement("ul");
+  toDoList.style.listStyleType = "none";
+
+  h1.innerText = "Todo List";
 
   for (let index = 0; index < todos.length; index++) {
-    let item = todos[index];
+    let item = todos[index].description;
     let checkBox = item.completed ? "done" : "";
-    let itemMarkup = `<li><input type = "checkbox" ${checkBox} ${item.description}></index>
+    let itemMarkup = `<li><input type = "checkbox" ${checkBox}/>${item}
         </li>`;
 
-    h1.innerText = "Todo List";
     toDoList.innerHTML += itemMarkup;
 
     app.appendChild(h1);
